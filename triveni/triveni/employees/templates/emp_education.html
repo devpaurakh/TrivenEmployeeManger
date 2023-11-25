@@ -1,0 +1,100 @@
+{%extends 'empage_base.html'%}
+{% block main %}
+<div class="card shadow m-2">
+    <div class="card-body">
+        <a href="{% url 'my_edu_edit'%}" class="btn btn-primary float-right"> <i class="fa fa-edit"></i> Edit Academics</a>
+        <h4 class="p-2" style="border-bottom: 2px solid #F6635C !important; text-decoration: underline; color:orange;">
+            My Education</h4>
+        <div class="continer-fluid">
+            <table class="table table-bordered">
+                <tr>
+                    <th>Master's degree Course Name</th>
+                    <td>{{Edu.CorseMaster}}</td>
+                   
+                </tr>
+                <tr>
+                    <th>Master's degree institutions Name</th>
+                    <td>{{Edu.schoolMaster}}</td>
+                   
+                </tr>
+                <tr>
+                    <th>Master's degree Passing Year</th>
+                    <td>{{Edu.yearOfPassMaster}}</td>
+                   
+                </tr>
+                <tr>
+                    <th>Master's degree Percentage</th>
+                    <td>{{Edu.precentageMaster}}</td>
+                   
+                </tr>
+                <!-- Second Company -->
+                <tr>
+                    <th>Bachelor's degree Course Name</th>
+                    <td>{{Edu.CorseBachlor}}</td>
+                   
+                </tr>
+                <tr>
+                    <th>Bachelor's degree institutions Name</th>
+                    <td>{{Edu.schoolBachlor}}</td>
+                   
+                </tr>
+                <tr>
+                    <th>Bachelor's degree Passing Year</th>
+                    <td>{{Edu.yearOfPassBachlor}}</td>
+                   
+                </tr>
+                <tr>
+                    <th>Bachelor's degree Percentage</th>
+                    <td>{{Edu.precentageBachlor}}</td>
+                   
+                </tr>
+                <!-- Third Company -->
+
+                <tr>
+                    <th>+2 Major Course</th>
+                    <td>{{Edu.CorsePlus2}}</td>
+                   
+                </tr>
+                <tr>
+                    <th>+2 institutions Name</th>
+                    <td>{{Edu.schoolPlus2}}</td>
+                   
+                </tr>
+                <tr>
+                    <th>+2 Passing Year</th>
+                    <td>{{Edu.yearOfPassPlus2}}</td>
+                   
+                </tr>
+                <tr>
+                    <th>+2 Percentage or GPA</th>
+                    <td>{{Edu.precentagePlus2}}</td>
+                   
+                </tr>
+
+
+                <tr>
+                    <th>SEE or SLC Optional Subject</th>
+                    <td>{{Edu.CorseSEE}}</td>
+                   
+                </tr>
+                <tr>
+                    <th>SEE or SLC institutions Name</th>
+                    <td>{{Edu.schoolSEE}}</td>
+                   
+                </tr>
+                <tr>
+                    <th>SEE or SLC Passing Year</th>
+                    <td>{{Edu.yearOfPassSEE}}</td>
+                   
+                </tr>
+                <tr>
+                    <th>SEE or SLC Precentage or GPA</th>
+                    <td>{{Edu.precentageSEE}}</td>
+                   
+                </tr>
+            </table>
+            
+        </div>
+    </div>
+</div >
+{% endblock %}

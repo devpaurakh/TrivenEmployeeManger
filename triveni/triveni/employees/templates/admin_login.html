@@ -1,0 +1,81 @@
+{% load static %}
+
+<head>
+    <link rel="stylesheet" href="../static/css/admin_login.css">
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+</head>
+<body>
+    <div class="row">
+        <div class="col-lg-5 m-auto">
+            <div class="card mt-5  bg-dark">
+                <div class="card-title text-center mt-3">
+                    <img src="../static/images/adminIcon.png" class="img-thumbnail rounded-circle my-3" alt="" srcset="" width="150" height="150">
+                    <div class="card-body">
+                        <form action="" method="POST">
+                            {%csrf_token%}
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="fa fa-user fa-2x"></i>
+                                    </span>
+                                </div>
+                                <input type="text" name="username" class="form-control py-4" id="" placeholder="Enter Admin Username">
+                            </div>
+
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="fa fa-lock fa-2x"></i>
+                                    </span>
+                                </div>
+                                <input type="password" name="password" class="form-control py-4" id="pw" placeholder="Enter Password">
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                   
+                                        <div><input type="checkbox" value="Show Password" width="5" height="5" onclick="showPaswordFunction()"><Span class="text-white"> Show Password</Span></div>
+                                </div>
+                                
+                            </div>
+
+                            <input type="submit" value="Login" class="btn btn-primary px-5"><br><br>
+                            <i class="fa fa-arrow-left text-success"></i><a href="{%url 'homepage'%}" class="text-white"> Go back to Home</a>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    //show password funtion here
+    function showPaswordFunction() {
+        var x = document.getElementById("pw");
+        if (x.type === "password") {
+          x.type = "text";
+        } else {
+          x.type = "password";
+        }
+      }
+</script>
+
+{% if showError == "no" %}
+<script>
+    alert("Admin Login Succefully");
+    window.location = ("{% url 'admin_dashboard' %}");
+</script>
+{% endif %}
+
+{% if showError == "yes" %}
+<script>
+    alert("Oh ! You are not a admin");
+</script>
+{% endif %}

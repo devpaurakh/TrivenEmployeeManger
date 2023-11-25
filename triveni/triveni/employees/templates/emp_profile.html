@@ -1,0 +1,127 @@
+{%extends 'empage_base.html'%}
+{% block main %}
+<div class="card shadow m-2">
+    <div class="card-body">
+        <h4 class="p-2" style="border-bottom: 2px solid #F6635C !important; text-decoration: underline; color:orange;">
+            Profile</h4>
+        <div class="continer-fluid">
+            <form method="POST" name="profile">
+                <!-- csrf_token used for security purposes -->
+                {%csrf_token%}
+                <div class="form-row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="firstName">First Name<span style="color: red;">*</span></label>
+                            <!-- Input string only -->
+                            <input type="text" name="firstname" class="form-control"
+                                placeholder="Enter Employee First Name" pattern="[A-Za-z]+"
+                                value="{{employee.user.first_name}}">
+
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="lastName">Last Name <span style="color: red;">*</span></label>
+                            <!-- Input string only -->
+                            <input type="text" name="lname" class="form-control" placeholder="Enter Employee First Name"
+                                pattern="[A-Za-z]+" value="{{employee.user.last_name}}">
+
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label for="code">Employee Code<span style="color: red;">*</span></label>
+                            <!-- Input string only -->
+                            <input type="text" name="code" class="form-control" placeholder="Enter Employee Code"
+                                pattern="[0-9]+" value="{{employee.empCode}}">
+
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="email">Employee Desigantion <span
+                                    style="color:#6a6868c5;">(Optional)</span></label>
+                            <!-- Input string only -->
+                            <input type="text" name="emp_desig" class="form-control" placeholder="Desigantion"
+                                pattern="[A-Za-z]+" value="{{employee.empDesignation}}">
+
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="department">Employee Department<span
+                                    style="color:#6a6868c5;">(Optional)</span></label>
+                            <!-- Input string only -->
+                            <input type="text" name="emp_department" class="form-control" placeholder="Department"
+                                pattern="[A-Za-z]+" value="{{employee.empDepart}}">
+
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="contact"> Employee Conatact<span style="color: red;">*</span></label>
+                            <!-- Input string only -->
+                            <input type="text" name="contact" id="phoneNumber" class="form-control" value="{{employee.empContactNo}}"
+                                placeholder="Example : +9771234556780">
+
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="email">Employee Email ID<span style="color: red;">*</span></label>
+                            <!-- Input string only -->
+                            <input type="email" name="email" class="form-control" placeholder="Enter Employee's Email"
+                                value="{{employee.user.username}}" readonly>
+
+                        </div>
+                    </div>
+
+
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="password">Joining-Date [{{employee.empJoiningdate}}]<span
+                                    style="color:#6a6868c5;">(B.S.)</span></label>
+                            <!-- Input string only -->
+                            <input type="date" name="joinDate" id="joiningDate" class="form-control"
+                                placeholder="Joining Date" >
+
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="gend  er">Gender [{{employee.empGender}}]</label>
+                            <!-- Input string only -->
+                            <select name="gender" id="forGender" class="form-control">
+                                <option value="-">Select Gneder</option>
+                                <option value="Male">Male</option>
+                                <option value="Male">Female</option>
+                                <option value="Male">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <br>
+                    <input type="submit" id="validateButton" value="Update" class=" m-2 btn btn-primary">
+            </form>
+        </div>
+    </div>
+</div >
+{% if showError == "no" %}
+<script>
+    alert("Account Successfully Updated");
+    window.location = ("{% url 'emp_profile' %}");
+</script>
+{% endif %}
+
+{% if showError == "yes" %}
+<script>
+    alert("Something Went Wrong");
+</script>
+{% endif %}
+
+{% endblock %}

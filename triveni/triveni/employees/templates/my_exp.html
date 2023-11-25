@@ -1,0 +1,78 @@
+{%extends 'empage_base.html'%}
+{% block main %}
+<div class="card shadow m-2">
+    <div class="card-body">
+        <a href="{% url 'my_exp_edit'%}" class="btn btn-primary float-right"> <i class="fa fa-edit"></i> Edit Work Experience</a>
+        <h4 class="p-2" style="border-bottom: 2px solid #F6635C !important; text-decoration: underline; color:orange;">
+            My Experience</h4>
+        <div class="continer-fluid">
+            <table class="table table-bordered">
+                <tr>
+                    <th>First Job Company  Name</th>
+                    <td>{{Exp.CompanyOneName}}</td>
+                   
+                </tr>
+                <tr>
+                    <th>First Company Job Designation</th>
+                    <td>{{Exp.CompanyOneDesig}}</td>
+                   
+                </tr>
+                <tr>
+                    <th>First Company Jab Salary</th>
+                    <td>{{Exp.CompanyOneSalary}}</td>
+                   
+                </tr>
+                <tr>
+                    <th>First Company Job Duration</th>
+                    <td>{{Exp.CompanyOneDuration}}</td>
+                   
+                </tr>
+                <!-- Second Company -->
+                <tr>
+                    <th>Second Job Company  Name</th>
+                    <td>{{Exp.CompanyTwoName}}</td>
+                   
+                </tr>
+                <tr>
+                    <th>Second Company Job Designation</th>
+                    <td>{{Exp.CompanyTwoDesig}}</td>
+                   
+                </tr>
+                <tr>
+                    <th>Second Company Jab Salary</th>
+                    <td>{{Exp.CompanyTwoSalary}}</td>
+                   
+                </tr>
+                <tr>
+                    <th>Second Company Job Duration</th>
+                    <td>{{Exp.CompanyTwoDuration}}</td>
+                   
+                </tr>
+                <!-- Third Company -->
+
+                <tr>
+                    <th>Third Job Company  Name</th>
+                    <td>{{Exp.CompanyThreeName}}</td>
+                   
+                </tr>
+                <tr>
+                    <th>Third Company Job Designation</th>
+                    <td>{{Exp.CompanyThreeDesig}}</td>
+                   
+                </tr>
+                <tr>
+                    <th>Third Company Jab Salary</th>
+                    <td>{{Exp.CompanyThreeSalary}}</td>
+                   
+                </tr>
+                <tr>
+                    <th>Third Company Job Duration</th>
+                    <td>{{Exp.CompanyThreeDuration}}</td>
+                   
+                </tr>
+            </table>
+            
+        </div>
+    </div>
+</div >
+{% endblock %}

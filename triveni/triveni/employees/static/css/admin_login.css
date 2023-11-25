@@ -1,0 +1,9 @@
+body{
+    background-image: url(../images/adminlogin.jpeg);
+    background-repeat: no-repeat,repeat;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    opacity: 0.8;
+    
+}

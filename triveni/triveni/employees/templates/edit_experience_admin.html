@@ -1,0 +1,98 @@
+{%extends 'admin_base.html'%}
+{% block main %}
+<div class="card shadow m-2">
+    <div class="card-body">
+       
+        <h4 class="p-2" style="border-bottom: 2px solid #F6635C !important; text-decoration: underline; color:orange;">
+            Employee's Experience</h4>
+        <div class="continer-fluid">
+            <form action="#" method="POST">
+                {%csrf_token%}
+            
+            <table class="table table-bordered">
+                <tr>
+                    <th>First Job Company  Name</th>
+                    <td><input type="text" name="CompanyOneName" id=""  value="{{Exp.CompanyOneName}}" class="form-control"></td>
+                   
+                </tr>
+                <tr>
+                    <th>First Company Job Designation</th>
+                    <td><input type="text" name="CompanyOneDesig" id=""  value="{{Exp.CompanyOneDesig}}" class="form-control"></td>
+                   
+                </tr>
+                <tr>
+                    <th>First Company Jab Salary</th>
+                    <td><input type="text" name="CompanyOneSalary" id=""  value="{{Exp.CompanyOneSalary}}" class="form-control"></td>
+                   
+                </tr>
+                <tr>
+                    
+                    <th>First Company Job Duration</th>
+                    <td><input type="text" name="CompanyOneDuration" id=""  value="{{Exp.CompanyOneDuration}}" class="form-control"></td>
+                   
+                </tr>
+                <!-- Second Company -->
+                <tr>
+                    <th>Second Job Company  Name</th>
+                    <td><input type="text" name="CompanyTwoName" id=""  value="{{Exp.CompanyTwoName}}" class="form-control"></td>
+                   
+                </tr>
+                <tr>
+                    <th>Second Company Job Designation</th>
+                    <td><input type="text" name="CompanyTwoDesig" id=""  value="{{Exp.CompanyTwoDesig}}" class="form-control"></td>
+                   
+                </tr>
+                <tr>
+                    <th>Second Company Jab Salary</th>
+                    <td><input type="text" name="CompanyTwoSalary" id=""  value="{{Exp.CompanyTwoSalary}}" class="form-control"></td>
+                   
+                </tr>
+                <tr>
+                    <th>Second Company Job Duration</th>
+                    <td><input type="text" name="CompanyTwoDuration" id=""  value="{{Exp.CompanyTwoDuration}}" class="form-control"></td>
+                   
+                </tr>
+                <!-- Third Company -->
+
+                <tr>
+                    <th>Third Job Company  Name</th>
+                    <td><input type="text" name="CompanyThreeName" id=""  value="{{Exp.CompanyThreeName}}" class="form-control"></td>
+                   
+                </tr>
+                <tr>
+                    <th>Third Company Job Designation</th>
+                    <td><input type="text" name="CompanyThreeDesig" id=""  value="{{Exp.CompanyThreeDesig}}" class="form-control"></td>
+                   
+                </tr>
+                <tr>
+                    <th>Third Company Jab Salary</th>
+                    <td><input type="text" name="CompanyThreeSalary" id=""  value="{{Exp.CompanyThreeSalary}}" class="form-control"></td>
+                   
+                </tr>
+                <tr>
+                    <th>Third Company Job Duration</th>
+                    <td><input type="text" name="CompanyThreeDuration" id=""  value="{{Exp.CompanyThreeDuration}}" class="form-control"></td>
+                   
+                </tr>
+            </table>
+
+            <center><input type="submit" value="Update Data" class="btn btn-primary m-2 p-3"></center>
+        </form>
+            
+        </div>
+    </div>
+</div >
+
+{% if showError == "no" %}
+<script>
+    alert("Exprince Details of employee Successfully Updated");
+    window.location = ("{% url 'edit_experience_admin' Exp.user.id %}");
+</script>
+{% endif %}
+
+{% if showError == "yes" %}
+<script>
+    alert("Something Went Wrong");
+</script>
+{% endif %}
+{% endblock %}

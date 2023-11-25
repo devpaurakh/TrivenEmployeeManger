@@ -1,0 +1,64 @@
+{%include 'navbar.html'%}
+
+<script>
+    //show password funtion here
+    function showPaswordFunction() {
+        var x = document.getElementById("pw");
+        if (x.type === "password") {
+          x.type = "text";
+        } else {
+          x.type = "password";
+        }
+      }
+</script>
+<div class="card shadow m-5">
+    <div class="card-body">
+        <h5 class="p-2" style="border-bottom: 2px solid #F6635C;">Employee Login</h5>
+        <div class="continer-fluid">
+            <form method="POST">
+                <!-- csrf_token used for security purposes -->
+                {%csrf_token%}
+                <div class="form-row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="firstName">Email ID or Username<span style="color: red;">*</span></label>
+                            <!-- Input string only -->
+                            <input type="email" name="emailid" class="form-control"
+                                placeholder="Enter Employee First Name" required>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="lastName">Password<span style="color: red;">*</span></label>
+                            <!-- Input string only -->
+                            <input type="password" name="password" id="pw" class="form-control" placeholder="Enter Password" required>
+
+                        </div>
+                    </div>
+                </div>
+                <input type="checkbox" onclick="showPaswordFunction()"> Show Password  
+
+                <br>
+                <br>
+                <input type="submit" value="Login" class=" m-2 btn btn-primary">
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% if showError == "no" %}
+<script>
+    window.location= ("{% url 'emp_home' %}");
+</script>
+{% endif %}
+
+{% if showError == "yes" %}
+<script>
+    alert("Invlaid username or Password, Try Again");
+</script>
+{% endif %}

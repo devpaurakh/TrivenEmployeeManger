@@ -1,0 +1,69 @@
+.navbar-brand{
+    font-weight: 500 !important;
+    color: red !important;
+   font-size: 30px !important;
+   
+}
+
+#header-nav{
+    background-color: #F3FDE8 !important;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+}
+
+
+#brand-subs{
+    font-size: 15px;
+}
+
+#collapsibleNavbar{
+    display: flex;
+   justify-content: flex-end;
+   height: 120px;
+}
+/* coat of arm image */
+.coatOfArm{
+    width: 170px; /* Set the width of your container */
+    height: 135px; /* Set the height of your container */
+    overflow: hidden; /* Hide the part of the image that extends after flip */
+    position: relative;
+    margin-left: 300px;
+}
+.coatOfArm img{
+    width:70%; /* Make sure the image takes up the whole container */
+    height: auto; /* Preserve the aspect ratio */
+    transform-origin: center; /* Set the transformation origin to the center */
+    animation: flipAnimation 5s infinite; /* Animation name, duration, and iteration */
+}
+
+/* animation key frames */
+
+@keyframes flipAnimation {
+    0% {
+        transform: scaleX(1); /* No flip at the start */
+    }
+    50% {
+        transform: scaleX(-1); /* Flip halfway through */
+    }
+    100% {
+        transform: scaleX(1); /* Back to original at the end */
+    }
+}
+
+.nav-link{
+    color: black !important;
+    transition: 0.5s;
+    margin-left: 5px;
+}
+
+
+.nav-link:hover{
+    color: white !important;
+    transition: 1s;
+    background-color: black;
+    text-decoration: underline !important;
+    border-radius: 15px;
+
+}
+
+
+

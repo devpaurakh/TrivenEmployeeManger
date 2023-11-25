@@ -1,0 +1,50 @@
+{%extends 'admin_base.html'%}
+{% block main %}
+
+
+
+<div class="card shadow m-2">
+    <div class="card-body">
+        <h4 class="p-2" style="border-bottom: 2px solid #F6635C !important; text-decoration: underline; color:orange;"> Admin
+            All Employee Information</h4>
+        <div class="continer-fluid ">
+            <table class="table table-bordered table-hover table-responsive" id="empDataTable">
+                <thead>
+                    <tr>
+                        <th>S No.</th>
+                        <th>Employee Code</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email Id</th>
+                        <th>Contact Number</th>
+                        <th>Joining Date</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {%for i in employee%}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{i.empCode}}</td>
+                        <td>{{i.user.first_name}}</td>
+                        <td>{{i.user.last_name}}</td>
+                        <td>{{i.user.username}}</td>
+                        <td>{{i.empContactNo}}</td>
+                        <td>{{i.empJoiningdate}}</td>
+                        <td><a href="{%url 'edit_profile_admin' i.id %}" class="text-success text-decoration-none">Profile <i class="fas fa-edit"></i></a><br>
+                            <a href="{% url 'edit_experience_admin' i.user.id %}" class="text-success text-decoration-none">Experience <i class="fas fa-edit"></i></a>
+                            <a href="{% url 'edit_education_admin' i.user.id %}" class="text-success text-decoration-none">Education <i class="fas fa-edit"></i></a>
+                            <br>
+                            <a href="{% url 'delete_employee' i.user.id %}" class="text-danger text-decoration-none" onclick="return confirm('Are you sure ?')">Delete<i class="fa fa-trash"></i></a>
+                            
+                           
+                        
+                        </td>
+                    </tr>
+                    {%endfor%}
+                </tbody>
+            </table>
+        </div> 
+    </div>
+</div>
+{% endblock %}

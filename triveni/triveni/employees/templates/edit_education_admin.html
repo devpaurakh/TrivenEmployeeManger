@@ -1,0 +1,118 @@
+{%extends 'admin_base.html'%}
+{% block main %}
+<div class="card shadow m-2">
+    <div class="card-body">
+        <h4 class="p-2" style="border-bottom: 2px solid #F6635C !important; text-decoration: underline; color:orange;">
+           Edit Employee Education</h4>
+        <div class="continer-fluid">
+            <form action="#" method="POST">
+                {%csrf_token%}
+            <table class="table table-bordered">
+                <tr>
+                    <th>Master's degree Course Name</th>
+                    <td><input type="text" name="CorseMaster" id=""  value="{{Edu.CorseMaster}}" class="form-control"></td>
+                   
+                </tr>
+                <tr>
+                    <th>Master's degree institutions Name</th>
+                    <td><input type="text" name="schoolMaster" id=""  value="{{Edu.schoolMaster}}" class="form-control"></td>
+                   
+                </tr>
+                <tr>
+                    <th>Master's degree Passing Year</th>
+                    <td><input type="text" name="yearOfPassMaster" id=""  value="{{Edu.yearOfPassMaster}}" class="form-control"></td>
+                   
+                </tr>
+                <tr>
+                    
+                    <th>Master's degree Percentage</th>
+                    <td><input type="text" name="precentageMaster" id=""  value="{{Edu.precentageMaster}}" class="form-control"></td>
+                   
+                </tr>
+                <!-- Bachlor Degree -->
+                <tr>
+                    <th>Bachelor's degree Course Name</th>
+                    <td><input type="text" name="CorseBachlor" id=""  value="{{Edu.CorseBachlor}}" class="form-control"></td>
+                   
+                </tr>
+                <tr>
+                    <th>Bachelor's degree institutions Name</th>
+                    <td><input type="text" name="schoolBachlor" id=""  value="{{Edu.schoolBachlor}}" class="form-control"></td>
+                   
+                </tr>
+                <tr>
+                    <th>Bachelor's degree Passing Year</th>
+                    <td><input type="text" name="yearOfPassBachlor" id=""  value="{{Edu.yearOfPassBachlor}}" class="form-control"></td>
+                   
+                </tr>
+                <tr>
+                    <th>Bachelor's degree Percentage</th>
+                    <td><input type="text" name="precentageBachlor" id=""  value="{{Edu.precentageBachlor}}" class="form-control"></td>
+                   
+                </tr>
+                <!-- +2 Course -->
+
+                <tr>
+                    <th>+2 Major Course</th>
+                    <td><input type="text" name="CorsePlus2" id=""  value="{{Edu.CorsePlus2}}" class="form-control"></td>
+                   
+                </tr>
+                <tr>
+                    <th>+2 institutions Name</th>
+                    <td><input type="text" name="schoolPlus2" id=""  value="{{Edu.schoolPlus2}}" class="form-control"></td>
+                   
+                </tr>
+                <tr>
+                    <th>+2 Passing Year</th>
+                    <td><input type="text" name="yearOfPassPlus2" id=""  value="{{Edu.yearOfPassPlus2}}" class="form-control"></td>
+                   
+                </tr>
+                <tr>
+                    <th>+2 Percentage or GPA</th>
+                    <td><input type="text" name="precentagePlus2" id=""  value="{{Edu.precentagePlus2}}" class="form-control"></td>
+                </tr>
+
+
+                <tr>
+                    <th>SEE or SLC Optional Subject</th>
+                    <td><input type="text" name="CorseSEE" id=""  value="{{Edu.CorseSEE}}" class="form-control"></td>
+                   
+                </tr>
+                <tr>
+                    <th>SEE or SLC institutions Name</th>
+                    <td><input type="text" name="schoolSEE" id=""  value="{{Edu.schoolSEE}}" class="form-control"></td>
+                   
+                </tr>
+                <tr>
+                    <th>SEE or SLC Passing Year</th>
+                    <td><input  type="text" name="yearOfPassSEE" id=""  value="{{Edu.yearOfPassSEE}}" class="form-control"></td>
+                   
+                   
+                </tr>
+                <tr>
+                    <th>SEE or SLC Precentage or GPA</th>
+                    <td><input type="text" name="precentageSEE" id=""  value="{{Edu.precentageSEE}}" class="form-control"></td>
+                   
+                </tr>
+            </table>
+
+            <center><input type="submit" value="Update Data" class="btn btn-primary m-2 p-3"></center>
+        </form>
+            
+        </div>
+    </div>
+</div >
+
+{% if showError == "no" %}
+<script>
+    alert("Academic Details of Employee Successfully Updated");
+    window.location = ("{% url 'edit_education_admin' Edu.user.id %}");
+</script>
+{% endif %}
+
+{% if showError == "yes" %}
+<script>
+    alert("Something Went Wrong");
+</script>
+{% endif %}
+{% endblock %}
